@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+:root {
+  /* Light Mode Variables */
+  --bg-app: #f4f5f8;
+  --bg-sidebar: #eaecef;
+  --bg-card: rgba(255, 255, 255, 0.75);
+  --border-card: rgba(200, 204, 212, 0.4);
+  --shadow-card: 0 8px 32px 0 rgba(31, 38, 135, 0.05);
+  
+  --text-primary: #1d2129;
+  --text-secondary: #5f6675;
+  --text-muted: #8c95a5;
+  
+  --btn-num: #ffffff;
+  --btn-num-text: #1d2129;
+  --btn-num-hover: #f1f2f5;
+  --btn-num-shadow: 0 2px 4px rgba(0, 0, 0, 0.03);
+  
+  --btn-op: #4f46e5;
+  --btn-op-text: #ffffff;
+  --btn-op-hover: #4338ca;
+  --btn-op-shadow: 0 4px 8px rgba(79, 70, 229, 0.2);
+  
+  --btn-fn: #e0e7ff;
+  --btn-fn-text: #4f46e5;
+  --btn-fn-hover: #c7d2fe;
+  
+  --btn-danger: #fee2e2;
+  --btn-danger-text: #ef4444;
+  --btn-danger-hover: #fca5a5;
+  
+  --btn-active: #c7d2fe;
+  
+  --accent-color: #4f46e5;
+  --accent-soft: rgba(79, 70, 229, 0.15);
+  
+  --history-item-hover: rgba(79, 70, 229, 0.05);
+  
+  --transition-speed: 0.3s;
+}
+
+[data-theme='dark'] {
+  /* Dark Mode Variables */
+  --bg-app: #090a0f;
+  --bg-sidebar: #11131c;
+  --bg-card: rgba(18, 20, 29, 0.65);
+  --border-card: rgba(255, 255, 255, 0.07);
+  --shadow-card: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+  
+  --text-primary: #f3f4f6;
+  --text-secondary: #9ca3af;
+  --text-muted: #6b7280;
+  
+  --btn-num: #1d202d;
+  --btn-num-text: #f3f4f6;
+  --btn-num-hover: #292d3e;
+  --btn-num-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  
+  --btn-op: #6366f1;
+  --btn-op-text: #ffffff;
+  --btn-op-hover: #4f46e5;
+  --btn-op-shadow: 0 4px 12px rgba(99, 102, 241, 0.35);
+  
+  --btn-fn: #23273a;
+  --btn-fn-text: #a5b4fc;
+  --btn-fn-hover: #313753;
+  
+  --btn-danger: #3b1e22;
+  --btn-danger-text: #f87171;
+  --btn-danger-hover: #50272c;
+  
+  --btn-active: #313753;
+  
+  --accent-color: #6366f1;
+  --accent-soft: rgba(99, 102, 241, 0.2);
+  
+  --history-item-hover: rgba(99, 102, 241, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Outfit', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+body {
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  height: 100vh;
+  overflow: hidden;
+  transition: background-color var(--transition-speed) ease, color var(--transition-speed) ease;
+}
+
+/* Custom Scrollbar Styles */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-card);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
+}
+
+/* Utilities */
+.glass {
+  background: var(--bg-card);
+  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(16px);
+  border: 1px solid var(--border-card);
+  box-shadow: var(--shadow-card);
+}
+
+.mono {
+  font-family: 'JetBrains Mono', monospace;
+}

@@ -1,0 +1,225 @@
+.graphing-layout {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-card);
+  position: relative;
+}
+
+/* Sidebar with equation panel */
+.graphing-sidebar {
+  width: 320px;
+  border-right: 1px solid var(--border-card);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  overflow-y: auto;
+  background-color: rgba(0, 0, 0, 0.02);
+}
+
+[data-theme='dark'] .graphing-sidebar {
+  background-color: rgba(0, 0, 0, 0.15);
+}
+
+.graphing-sidebar-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.equations-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  flex: 1;
+}
+
+.equation-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.85rem;
+  border-radius: 12px;
+  background-color: var(--btn-num);
+  border: 1px solid var(--border-card);
+  box-shadow: var(--btn-num-shadow);
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.equation-item-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.equation-label {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.equation-input-wrapper {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.equation-input {
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  border: 1px solid var(--border-card);
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color var(--transition-speed);
+}
+
+.equation-input:focus {
+  border-color: var(--accent-color);
+}
+
+.equation-error {
+  font-size: 0.7rem;
+  color: var(--btn-danger-text);
+  margin-top: 0.25rem;
+  padding-left: 2.2rem;
+}
+
+/* Color dot picker */
+.color-picker {
+  display: flex;
+  gap: 0.4rem;
+  padding-left: 2.2rem;
+}
+
+.color-dot {
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: transform 0.15s;
+}
+
+.color-dot:hover {
+  transform: scale(1.15);
+}
+
+.color-dot.selected {
+  border-color: var(--text-primary);
+  transform: scale(1.1);
+}
+
+/* Canvas Area */
+.graphing-canvas-container {
+  flex: 1;
+  position: relative;
+  height: 100%;
+  background-color: #ffffff;
+  cursor: crosshair;
+}
+
+[data-theme='dark'] .graphing-canvas-container {
+  background-color: #0f111a;
+}
+
+.graphing-canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Controls overlaid on Canvas */
+.canvas-controls {
+  position: absolute;
+  bottom: 1.25rem;
+  right: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  z-index: 10;
+}
+
+.canvas-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 10px;
+  background-color: var(--bg-card);
+  border: 1px solid var(--border-card);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-primary);
+  backdrop-filter: blur(12px);
+  transition: all 0.2s;
+}
+
+.canvas-btn:hover {
+  background-color: var(--btn-num-hover);
+  transform: translateY(-1px);
+}
+
+.coord-display {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 8px;
+  background-color: rgba(18, 20, 29, 0.85);
+  color: #ffffff;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  pointer-events: none;
+  z-index: 10;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+}
+
+.add-btn {
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 10px;
+  border: 2px dashed var(--border-card);
+  background: none;
+  color: var(--text-secondary);
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  transition: all 0.2s;
+}
+
+.add-btn:hover {
+  border-color: var(--accent-color);
+  color: var(--accent-color);
+  background-color: var(--accent-soft);
+}
+
+@media (max-width: 768px) {
+  .graphing-layout {
+    flex-direction: column;
+  }
+  
+  .graphing-sidebar {
+    width: 100%;
+    height: 220px;
+    border-right: none;
+    border-bottom: 1px solid var(--border-card);
+  }
+  
+  .graphing-canvas-container {
+    height: calc(100% - 220px);
+  }
+}

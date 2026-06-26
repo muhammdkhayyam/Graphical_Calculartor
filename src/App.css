@@ -1,0 +1,242 @@
+.app-layout {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
+  overflow: hidden;
+  background-color: var(--bg-app);
+  position: relative;
+}
+
+/* Main Content Area */
+.main-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  position: relative;
+  padding: 1.5rem;
+  transition: padding var(--transition-speed);
+}
+
+/* Header bar inside main area */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid var(--border-card);
+}
+
+.header-title h1 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+/* Calculator Wrapper Panels */
+.calculator-viewport {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* Card wrappers for Standard and Scientific */
+.calc-card {
+  width: 100%;
+  max-width: 400px;
+  border-radius: 24px;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  transition: max-width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.calc-card.scientific {
+  max-width: 600px;
+}
+
+.calc-card.graphing {
+  max-width: 100%;
+  height: 100%;
+  padding: 0;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* Display Screens */
+.calc-screen {
+  background: rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-content: flex-end;
+  min-height: 110px;
+  gap: 0.5rem;
+  border: 1px solid var(--border-card);
+}
+
+[data-theme='dark'] .calc-screen {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.screen-expression {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+  word-wrap: break-word;
+  word-break: break-all;
+  max-width: 100%;
+  text-align: right;
+  min-height: 1.5rem;
+}
+
+.screen-value {
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  word-wrap: break-word;
+  word-break: break-all;
+  max-width: 100%;
+  text-align: right;
+  line-height: 1.2;
+}
+
+.screen-value.error {
+  color: var(--btn-danger-text);
+  font-size: 1.5rem;
+}
+
+/* Button Grids */
+.calc-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0.75rem;
+}
+
+.calc-grid.scientific-grid {
+  grid-template-columns: repeat(5, 1fr);
+  gap: 0.6rem;
+}
+
+/* Calculator Buttons */
+.calc-btn {
+  border: none;
+  outline: none;
+  cursor: pointer;
+  border-radius: 14px;
+  height: 52px;
+  font-size: 1.15rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.15s cubic-bezier(0.4, 0, 0.2, 1);
+  background-color: var(--btn-num);
+  color: var(--btn-num-text);
+  box-shadow: var(--btn-num-shadow);
+}
+
+.calc-btn:hover {
+  background-color: var(--btn-num-hover);
+  transform: translateY(-1px);
+}
+
+.calc-btn:active {
+  transform: translateY(1px);
+}
+
+.calc-btn.operator {
+  background-color: var(--btn-op);
+  color: var(--btn-op-text);
+  box-shadow: var(--btn-op-shadow);
+  font-size: 1.3rem;
+}
+
+.calc-btn.operator:hover {
+  background-color: var(--btn-op-hover);
+}
+
+.calc-btn.func {
+  background-color: var(--btn-fn);
+  color: var(--btn-fn-text);
+  font-size: 1rem;
+}
+
+.calc-btn.func:hover {
+  background-color: var(--btn-fn-hover);
+}
+
+.calc-btn.danger {
+  background-color: var(--btn-danger);
+  color: var(--btn-danger-text);
+}
+
+.calc-btn.danger:hover {
+  background-color: var(--btn-danger-hover);
+}
+
+.calc-btn.double {
+  grid-column: span 2;
+}
+
+/* Responsive Sidebar Toggle for mobile */
+.menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  cursor: pointer;
+  padding: 0.25rem;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+  .app-layout {
+    flex-direction: column;
+  }
+  
+  .menu-btn {
+    display: block;
+  }
+  
+  .main-content {
+    padding: 1rem;
+  }
+  
+  .calc-card {
+    max-width: 100%;
+  }
+  
+  .calc-grid {
+    gap: 0.5rem;
+  }
+  
+  .calc-btn {
+    height: 48px;
+    font-size: 1.05rem;
+  }
+  
+  .calc-grid.scientific-grid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.4rem;
+  }
+  
+  .calc-grid.scientific-grid .calc-btn {
+    font-size: 0.9rem;
+    height: 44px;
+  }
+}

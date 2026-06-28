@@ -34,7 +34,7 @@ export default function Sidebar({
         <div>
           <div className="sidebar-logo">
             <Calculator className="sidebar-logo-icon" size={28} />
-            <span className="sidebar-logo-text">DataGraph StudioAntigravity Calc</span>
+            <span className="sidebar-logo-text">DataGraph Studio</span>
             {/* Close button on mobile */}
             <button 
               className="menu-btn" 
